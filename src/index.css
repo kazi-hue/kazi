@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  
+  --color-primary: #1a2e1a; /* Deep Forest Green */
+  --color-secondary: #faf9f6; /* Alabaster White */
+  --color-accent: #8ba888; /* Sage Leaf */
+  --color-earth: #2d2424; /* Dark Cocoa */
+  --color-gold: #c5a059; /* Muted Gold */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-secondary text-earth font-sans antialiased selection:bg-accent/30;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-serif tracking-tight;
+}
+
+/* Custom Glassmorphism */
+.glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/20;
+}
+
+/* Smooth Reveal Animation */
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-reveal {
+  animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Floating Blobs Animation */
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.animate-float {
+  animation: float 20s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 25s ease-in-out infinite reverse;
+  animation-delay: -5s;
+}
